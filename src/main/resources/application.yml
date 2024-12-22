@@ -1,0 +1,29 @@
+#server port
+server:
+  port: 9013
+
+spring:
+  profiles:
+    #env
+    active: @env@
+  thymeleaf:
+    cache: false # 关闭页面缓存
+    encoding: UTF-8 # 模板编码
+    prefix: classpath:/templates/  # 页面映射路径
+    suffix: .html # 试图后的后缀
+    mode: HTML5 # 模板模式
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-active: 1024
+        max-wait: 10000
+        max-idle: 200
+        min-idle: 0
+    timeout: 10000
+    database: 1
+#logging file
+logging:
+  config: classpath:logback-@env@.xml
